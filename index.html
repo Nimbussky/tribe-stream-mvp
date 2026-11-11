@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TribeStream — High-Tech Social Video + Tribes</title>
+  <link rel="stylesheet" href="src/design-system.css" />
+  <script src="https://js.puter.com/v2/"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- Top Navigation -->
+    <header class="top-nav glass">
+      <div class="logo">
+        <span class="logo-mark">◆</span>
+        <span class="logo-text">TribeStream</span>
+      </div>
+      <nav class="nav-links">
+        <button class="nav-btn active" data-view="home">Home</button>
+        <button class="nav-btn" data-view="tribes">Tribes</button>
+        <button class="nav-btn" data-view="wallet">Wallet</button>
+        <button class="nav-btn" data-view="create">Create</button>
+      </nav>
+      <div class="nav-right">
+        <button id="btn-agent" class="icon-btn" title="Support Agent">💬</button>
+        <div id="user-area">
+          <button id="btn-signin" class="btn primary">Sign In</button>
+          <div id="user-info" class="user-info hidden">
+            <span id="user-name"></span>
+            <span id="coin-balance" class="coin-badge">0 ◆</span>
+            <button id="btn-signout" class="btn ghost">Out</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- HOME / FEED -->
+      <section id="view-home" class="view active">
+        <div class="hero glass">
+          <h1>Watch. Join. Earn. Belong.</h1>
+          <p>High-tech content + tribes + your own Coin economy</p>
+        </div>
+        <div class="feed" id="feed-container">
+          <!-- Cards injected by JS -->
+        </div>
+      </section>
+
+      <!-- WATCH PAGE -->
+      <section id="view-watch" class="view">
+        <div class="watch-layout">
+          <div class="player-area glass">
+            <div class="video-placeholder" id="player">
+              <div class="play-icon">▶</div>
+              <p id="watch-title">Select a video</p>
+            </div>
+            <div class="watch-actions">
+              <button class="btn" id="btn-like">♥ Like</button>
+              <button class="btn" id="btn-share">Share</button>
+              <button class="btn" id="btn-subscribe">Subscribe</button>
+              <button class="btn primary" id="btn-join-tribe">Join Tribe</button>
+            </div>
+            <div class="comments glass">
+              <h3>Comments</h3>
+              <div id="comments-list"></div>
+              <div class="comment-input">
+                <input type="text" id="comment-text" placeholder="Add a comment..." />
+                <button class="btn primary" id="btn-comment">Post</button>
+              </div>
+            </div>
+          </div>
+          <aside class="related glass">
+            <h3>Related</h3>
+            <div id="related-list"></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- TRIBES -->
+      <section id="view-tribes" class="view">
+        <div class="tribes-header">
+          <h2>Your Tribes & Rooms</h2>
+          <button class="btn primary" id="btn-create-tribe">+ Create Tribe</button>
+        </div>
+        <div class="tribes-grid" id="tribes-grid">
+          <!-- Injected -->
+        </div>
+        <div id="room-view" class="room-view glass hidden">
+          <div class="room-header">
+            <h3 id="room-name">Room</h3>
+            <button class="btn ghost" id="btn-leave-room">Leave</button>
+          </div>
+          <div class="room-chat" id="room-chat"></div>
+          <div class="room-input">
+            <input type="text" id="room-message" placeholder="Message the tribe..." />
+            <button class="btn primary" id="btn-send-msg">Send</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- WALLET -->
+      <section id="view-wallet" class="view">
+        <div class="wallet-card glass">
+          <h2>Your Coin Wallet</h2>
+          <div class="balance-display">
+            <span class="balance-amount" id="wallet-balance">0</span>
+            <span class="balance-label">◆ Coins</span>
+          </div>
+          <p class="wallet-note">Earned from watch time, likes, shares, joins & chat. Ledger-backed.</p>
+          <div class="wallet-actions">
+            <input type="text" id="transfer-to" placeholder="Puter username to transfer" />
+            <input type="number" id="transfer-amount" placeholder="Amount" min="1" />
+            <button class="btn primary" id="btn-transfer">Transfer</button>
+          </div>
+          <h3>Recent Ledger</h3>
+          <div id="ledger-list" class="ledger-list"></div>
+        </div>
+      </section>
+
+      <!-- CREATE -->
+      <section id="view-create" class="view">
+        <div class="create-card glass">
+          <h2>Create Content</h2>
+          <p>Upload reels / videos (Phase 1 uses demo content). Real puter.fs upload coming next.</p>
+          <input type="text" id="create-title" placeholder="Title" />
+          <textarea id="create-desc" placeholder="Description"></textarea>
+          <button class="btn primary" id="btn-publish">Publish Demo</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- AI SUPPORT AGENT PANEL -->
+    <div id="agent-panel" class="agent-panel glass hidden">
+      <div class="agent-header">
+        <h3>Support Agent</h3>
+        <button id="btn-close-agent" class="icon-btn">✕</button>
+      </div>
+      <div id="agent-messages" class="agent-messages"></div>
+      <div class="agent-input">
+        <input type="text" id="agent-input" placeholder="Ask anything or raise a query..." />
+        <button class="btn primary" id="btn-agent-send">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
